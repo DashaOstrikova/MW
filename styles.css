@@ -30,16 +30,39 @@ body{
 }  
 .layer{
     position: relative;
-    width: 1280px;
-    height: 1826px;
     margin: 0 auto;
-    overflow: hidden;
     color: rgb(255, 255, 255);
 }
 .header{
     background-color: #f74c55;
     padding: 0 130px;
     height: 496px;
+    padding-top: 15px;
+}
+.header::before,
+.header::after{
+    content: '';
+    display: block;
+    position: absolute; 
+}
+.header::before{
+    top: 0; 
+    left: 0;
+    background-image: url("images/circle_top.png");
+    width: 613px;
+    height: 496px;
+}
+.header::after{
+    right: 0; 
+    top: 247px;
+    background-image: url("images/circle_bottom.png");
+    width: 309px;
+    height: 249px;
+}
+@media (max-width: 920px) {
+    .header::before {
+        display: none;
+    }
 }
 a{
     color: rgb(255, 255, 255);
@@ -49,13 +72,13 @@ a{
     font-size: 50px;
     font-family: "SusaLight";
     display: inline-block;
-    margin-top: 15px;
+    margin-bottom: 140px;
     position: relative;
-    z-index: 7;
 }
 .menu{
-    margin-top: 30px;
-    float: right;       
+    padding-top: 15px;
+    float: right;   
+    position: relative;    
 }
 .menu-list{
     list-style-type: none;
@@ -64,24 +87,44 @@ a{
 }
 .menu-item{
     float: left;
-    margin: 0 30px 0 0; 
+    margin: 0 0 0 30px; 
 } 
-.menu::after {
-    content: '';
-    display: block;
-    clear: both;
+@media (max-width: 768px) {
+    .menu-list {
+        display: none;
+    }
+    .menu-item {
+        float: none;
+        margin: 0;
+    }
+    .menu:before{
+        content: 'MENU';
+        display: block;
+        font-size: 16px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    .menu:hover .menu-list {
+        display: block;
+        position: absolute;
+        min-width: 150px;
+    }
 }
 .header-content{
-    margin: 140px 0 0 565px;
+    margin: 0 auto;
+    width: 265px;
+    position: relative;
+    z-index: 1;
 }  
 .title{
     font-size: 40px;
     line-height: 1.117;
-    height: 37px;
+    height: 40px;
+    margin-bottom: 13px;
 }
 .subtitle{
     font-size: 16px;
-    margin-top: 13px;
+    margin-bottom: 16px;
 }
 .but{
     border-style: solid;
@@ -91,145 +134,36 @@ a{
     background-color: transparent;
     width: 154px;
     height: 45px;
-    margin-top: 16px;
     font-size: 24px;
     font-weight: 400;
     color:  rgb(255, 255, 255);
 }
-.circle{
-    border-radius: 50%;
-}
-.org{
-    background-color: rgb(238, 115, 47);
-    width: 206px;
-    height: 206px;
-    position: absolute;
-    right: -143px;
-    top: 328px;
-    z-index: 4;
-}
-.org2{
-    position: absolute;
-    left: 75px;
-    top: -106px;
-    z-index: 6;
-}
-.red{
-    background-color: rgb(247, 76, 85);
-    width: 281px;
-    height: 281px;
-    position: absolute;
-    right: -163px;
-    top: 308px;
-    z-index: 3;
-}
-.red2{
-    position: absolute;
-    left: 38px;
-    top: -119px;
-    z-index: 5;
-}
-.red3{
-    width: 525px;
-    height: 525px;
-    position: absolute;
-    left: -84px;
-    top: -141px;
-    z-index: 2;
-}
-.grn{
-    background-color: rgb(45, 95, 59);
-    width: 384px;
-    height: 384px;
-    position: absolute;
-    right: -188px;
-    top: 283px;
-    z-index: 2;
-}
-.grn2{
-    position: absolute;
-    left: -14px;
-    top: -133px;
-    z-index: 4;
-}
-.lbl{
-    background-color: rgb(130, 163, 173);
-    width: 466px;
-    height: 466px;
-    position: absolute;
-    left: -55px;
-    top: -144px;
-    z-index: 3;
-}
-.gr{
-    background-color: rgb(64, 64, 64);
-    width: 466px;
-    height: 466px;
-    position: absolute;
-    right: -208px;
-    top: 263px;
-    z-index: 1;
-}
-.gr2{
-    width: 718px;
-    height: 718px;
-    position: absolute;
-    left: -181px;
-    top: -168px;
-    z-index: 1;
-}
-.pink{
-    background-color: rgb(251, 99, 107);
-    width: 527px;
-    height: 527px;
-    position: absolute;
-    right: -218px;
-    top: 247px;
-}
-.pink2{
-    width: 870px;
-    height: 870px;
-    position: absolute;
-    left: -257px;
-    top: -188px;
-}
-.circle_top{
-    position: absolute; 
-    top: 0; 
-    left: 0;
-}
-.circle_bottom{
-    position: absolute; 
-    right: 0; 
-    top: 247px;
-}
 .textblock{
     background-color: rgb(255, 255, 255);
-    width: 1280px;
-    height: 448px;
-    padding: 75px 130px 0;
-    position: relative;
-    z-index: 5;
+    padding: 75px 130px;
+}
+@media (max-width: 540px) {
+    .textblock {
+        padding: 75px 48px;
+    }
 }
 .content{
-    margin-left: 90px;
+    margin: 0 auto;
+    max-width: 862px;
 }
 .texttitle{
     font-size: 30px;
     color: rgb(0, 0, 0);
     line-height: 1.488;
+    margin-bottom: 25px;
 }
 .text{
     font-size: 14px;
     color: rgb(64, 64, 64);
     line-height: 1.76;
-    margin-top: 25px;
-    width: 862px;
+    margin-bottom: 52px;
 }
-.color-cubes{
-    margin: 52px 0 0 95px;
-}
-.color-cubes::after {
+.reset-float::after {
     content: '';
     display: block;
     clear: both;
@@ -254,56 +188,65 @@ a{
 .color_cub-pink{
     background-color: rgb(251, 99, 107);
 }
-.boxes::after {
+.advantages::before, 
+.advantages::after{
     content: '';
     display: block;
-    clear: both;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+.advantages::before{
+    background-color: rgb(64, 64, 64);
+    left: 0;
+}
+.advantages::after{
+    background-color: rgb(45, 95, 59);
+    right: 0;
+}
+.boxes{
+    margin: 0 auto;
+    width: 1170px;
 }
 .box{
     background-color: rgb(64, 64, 64);
-    width: 476px;
+    width: 390px;
     height: 304px;
     padding-top: 30px;
     float: left;
 }
 .box-middle{
-    width: 364px;
     background-color: rgb(247, 76, 85);
 }
 .box-last{
-    width: 440px;
     background-color: rgb(45, 95, 59);
 }
+.box-content{
+    margin-left: 48px;
+}
 .box_title{
-    background: url("../Images/images/SEO.png") 0px no-repeat;
+    background: url("images/SEO.png") 0px no-repeat;
     font-size: 22px;
     font-weight: 400;
-    line-height: 2.028;
-    margin: 0 0 0 158px;
+    line-height: 2.028; 
     padding-left: 48px;
+    margin-bottom: 5px;
 }
 .box_title-middle{
-    margin-left:  48px;
-    background: url("../Images/images/Responsive.png") 0px no-repeat;
+    background: url("images/Responsive.png") 0px no-repeat;
 }
 .box_title-last{
-    margin-left:  43px;
-    padding-left: 55px;
-    background: url("../Images/images/Cloud.png") 0px no-repeat;
+    background: url("images/Cloud.png") 0px no-repeat;
 }
 .box_text{
     font-size: 14px;
     line-height: 1.766; 
     width: 270px;
     height: 140px;
-    margin: 5px 0 0 160px;
+    margin-bottom:20px;
     overflow: hidden;
-}
-.box_text-middle{
-    margin-left: 48px;
-}
-.box_text-last{
-    margin-left: 43px;
 }
 .plus{
     background-color: rgb(39, 39, 39); 
@@ -311,7 +254,7 @@ a{
     width: 35px; 
     height: 32px;
     float: right; 
-    margin: 20px 48px 0 0;
+    margin-right: 48px;
     font-size: 34px; 
     font-family:OptimaLT-ExtraBlack; 
     line-height: 32px;
@@ -322,44 +265,60 @@ a{
 }
 .plus-last{
     background-color: rgb(28, 61, 37);
-    margin-right: 120px;
+}
+@media (max-width: 1170px) {
+    .boxes {
+        width: 100%;
+    }
+    .box {
+        width: 100%;
+        float: none;
+    }
+    .box-content {
+        margin: 0 48px;
+    }
+    .box_text {
+        width: 100%; 
+        text-align: justify;
+    }
 }
 .overlayblock{
+    width: 100%;
     height: 499px;
     position: relative;
+    background-image: url("images/overlay.jpg");
+    background-size: cover;
+    display: grid;
+    justify-items: center;
+    align-items: center;
 }
 .overlay{
     background-color: black; 
     opacity: 0.88; 
-    width: 1280px; 
+    width: 100%;
     height: 499px;
     position: absolute;
-    top: 0;
+}
+.overlay-content{
+    max-width: 548px;
+    z-index: 1;
+    text-align: center;
 }
 .overlaytext{
     font-size: 42px;
     line-height: 1.278;
-    text-align: center;
-    position: absolute;
-    left: 380px;
-    top: 177px;
-    width: 548px;
+    margin-bottom: 35px;
 }
 .bold{
     font-weight: bold;
 }
 .overlay-but{
     border-radius: 3px;
-    position: absolute;
-    left: 550px;
-    top: 314px;
     width: 182px;
-    margin: 0;
 }
 .footer{
     background-color: rgb(255, 255, 255);
-    width: 1280px;
-    height: 70px;
+    height: 79px;
 }
 .copyright{
     font-size: 16px;
@@ -368,9 +327,10 @@ a{
     line-height: 70px;
     text-align: center;
 }
-.footerband{
-    background-image: url("../Images/images/footer_band.jpg");
+.footer::before{
+    content: '';
+    display: block;
+    background-image: url("images/footer_band.jpg");
     background-repeat: repeat-x;
-    width: 1280px;
     height: 9px;
 }
